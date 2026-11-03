@@ -11,6 +11,8 @@ Azure SQL Database. Run the scripts **in numeric order**. All DDL is idempotent 
 | 05 | `05_dw_facts.sql` | Fact tables (production, facility, deferment, power, maintenance) |
 | 06 | `06_app_views.sql` | Business views — the **only** objects the API user can read |
 | 07 | `07_security_hardening.sql` | Masking, TDE/TLS/audit notes, RLS notes |
+| 08 | `08_merge_procs.sql` | `usp_merge_*` stored procs: idempotent MERGE staging→dw |
+| 09 | `09_dim_date_and_cleanup.sql` | `usp_ensure_date`, `usp_purge_staging_batch` |
 
 ## Design
 
