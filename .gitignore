@@ -1,0 +1,28 @@
+# Secrets — JD: "no credentials in code"
+.env
+*.env
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Data (don't commit real/generated reports)
+sample_data/incoming/*.xlsx
+sample_data/processed/*
+!sample_data/incoming/.gitkeep
+!sample_data/processed/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

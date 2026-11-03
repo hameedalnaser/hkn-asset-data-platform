@@ -1,0 +1,26 @@
+# --- Core pipeline (JD: pandas, numpy, scipy, openpyxl) ---
+pandas
+numpy
+scipy
+openpyxl
+
+# --- SQL Server connectivity (JD: SQL Server via pyodbc, parameterised SQL) ---
+pyodbc
+sqlalchemy
+
+# --- API (JD: FastAPI) ---
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+
+# --- Plotting (JD: Plotly) ---
+plotly
+
+# --- Config / security (JD: no credentials in code) ---
+python-dotenv
+
+# --- Dev: tests, lint (JD: tests, code review, standards) ---
+pytest
+pytest-cov
+ruff
