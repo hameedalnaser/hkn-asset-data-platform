@@ -3,6 +3,9 @@
 *.env
 !.env.example
 
+# Filled-in SQL user script (contains passwords); only the .template is committed
+sql/02_create_users.sql
+
 # Python
 .venv/
 __pycache__/

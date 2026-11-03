@@ -1,0 +1,28 @@
+/* =====================================================================
+   02_create_users.sql.template
+
+   Creates the two application database users and assigns least-privilege
+   roles. This is a TEMPLATE: copy it to 02_create_users.sql, replace the
+   __PLACEHOLDER__ values with strong passwords from your password manager,
+   run it, then delete the filled-in copy. The real file is gitignored.
+
+   JD: "no credentials in code". Nothing here is committed with a real secret.
+   ===================================================================== */
+
+-- Pipeline/ETL user (used by the Python ingestion job).
+IF DATABASE_PRINCIPAL_ID('etl_user') IS NULL
+    CREATE USER etl_user WITH PASSWORD = '__ETL_PASSWORD__';
+ALTER ROLE role_etl ADD MEMBER etl_user;
+GO
+
+-- API read-only user (used by the FastAPI service).
+IF DATABASE_PRINCIPAL_ID('api_user') IS NULL
+    CREATE USER api_user WITH PASSWORD = '__API_PASSWORD__';
+ALTER ROLE role_api_read ADD MEMBER api_user;
+GO
+
+/* After this runs:
+     - .env SQL_USERNAME/SQL_PASSWORD for the pipeline  -> etl_user
+     - the API's own env vars                           -> api_user
+   The server admin login stays in your password manager and is never
+   used by application code. */
